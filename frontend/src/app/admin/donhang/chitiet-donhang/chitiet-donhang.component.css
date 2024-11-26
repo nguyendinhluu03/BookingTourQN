@@ -1,0 +1,31 @@
+.container{
+  background-color: rgb(199, 216, 252);
+  margin: 0 auto;
+  width: 700px;
+  padding: 40px 40px;
+  border-radius: 10px;
+}
+h2{
+  text-align: center;
+  color: blue;
+  border-bottom: solid blue;
+}
+.container-main{
+  margin-top: 30px;
+}
+.container-main span{
+  font-size: x-large;
+}
+table{
+  margin: 0 auto;
+  width: 600px;
+}
+table tr,th{
+  font-size: larger;
+}
+h4{
+  margin-top: 50px;
+  text-align: right;
+  margin-right: 100px;
+  font-size: xx-large;
+}

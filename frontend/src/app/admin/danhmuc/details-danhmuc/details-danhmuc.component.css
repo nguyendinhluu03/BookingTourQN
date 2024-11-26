@@ -1,0 +1,17 @@
+ .container{
+  padding-left: 160px;
+  padding-top: 30px;
+}
+h1{
+  margin-top: 50px;
+  margin-left: 160px;
+  color: blue;
+  border-bottom: solid rgb(206, 205, 205);
+  width: 800px;
+}
+.mota span{
+  font-weight: lighter;
+  display: flex;
+  margin: 30px 150px 10px 160px;
+}
+

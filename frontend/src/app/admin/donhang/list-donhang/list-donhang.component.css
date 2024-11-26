@@ -1,0 +1,14 @@
+.table{
+  width: 1000px;
+  margin: 0 auto;
+}
+.them{
+  margin-top: 30px;
+  margin-left: 60px;
+}
+form label{
+  font-weight: bold;
+}
+h5{
+  color: blue;
+}

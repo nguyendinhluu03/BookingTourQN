@@ -1,0 +1,21 @@
+<div class="container">
+    <h2 class="title">Danh Sách 5 Tour được đặt nhiều nhất</h2>
+    
+    <table class="booking-table">
+      <thead>
+        <tr>
+          <th>Tour</th>
+          <th>Ngày Booking</th>
+          <th>Số Lượng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of DSBooking">
+          <td>{{ booking.IDTour }}</td>
+          <td>{{ booking.DateTime | date: 'yyyy-MM-dd' }}</td> 
+          <td>{{ booking.Count }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

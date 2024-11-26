@@ -1,0 +1,21 @@
+<div class="container-detail" *ngIf="vehicles">
+  <div class="title">
+    <h3>{{vehicles.Name}}  <i class="fa-solid fa-star"></i>  <i class="fa-solid fa-star"></i>  <i class="fa-solid fa-star"></i>  <i class="fa-solid fa-star"></i>  <i class="fa-solid fa-star"></i></h3>
+  </div>
+  <div class="container-main">
+    <div class="photo">
+      <img style="height: 380px; width: 700px;" [src]="vehicles.PathAnh">
+    </div>
+    <div class="content">
+      <div class="main">
+      <span><i class="fas fa-location-dot"></i> Loại: {{vehicles.Type}}</span>
+      </div>
+      <div class="diemnoibat">
+        <div>
+          <i class="fa-solid fa-phone"></i>
+          <span> Liên hệ: 0339716273</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

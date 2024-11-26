@@ -1,0 +1,51 @@
+<div class="container" >
+  <h4>Danh sách các phương tiện du lịch một ngày và dài ngày tại QuyNhon Tour.</h4>
+  <div>
+    <select name="searchText" [(ngModel)]="searchText" (keyup.enter)="timkiem()">
+      <option disabled selected value="">--- Chọn loại xe ---</option>
+      <option *ngFor="let v of DSVehicle" [value]="v.Type">{{v.Type}}</option>
+    </select>
+    <button type="button" (click)="timkiem()">Tìm kiếm</button>
+  </div>
+  <div class="create-button">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      (click)="themVehicles()">
+      Thêm Phương Tiện
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{{tieude}}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+              (click)="dong()"></button>
+          </div>
+          <div class="modal-body">
+            <app-create-update-vehicles [vehicles]="vehicles" *ngIf="dangThemSua"></app-create-update-vehicles>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 ">
+      <div class="tour-oneday">
+        <div *ngFor="let v of vehiclesSearch.length > 0 ? vehiclesSearch : DSVehicle" class="tour ">
+          <a [routerLink]="['/admin/vehicles/detail', v.Id]" [routerLinkActive]="'active-link'"><img
+              style="width: 200px; height: 200px;" [src]="v.PathAnh"></a>
+          <h5>{{v.Name}}</h5>
+          <span>Loại: {{v.Type}}</span> <br>
+          <div class="button-sua-xoa">
+            <button type="button" class="btn btn-primary" (click)="chitietVehicles(v)" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">Sửa</button>
+            <button type="button" class="btn btn-primary" (click)="xoaTour(v.Id)"
+              style="margin-left: 30px;">Xóa</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

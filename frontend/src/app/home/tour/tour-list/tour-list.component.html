@@ -1,0 +1,59 @@
+<!-- Tìm kiếm -->
+<div class="container-body">
+  <div>
+    <div class="container-search">
+      <span>TÌM KIẾM</span> <br>
+      <label style="padding-top: 10px;">Điểm đi</label>
+      <input type="text" placeholder="Từ Quy Nhơn" readonly> <br>
+      <label>Điểm đến</label>
+      <input type="text" name="searchText" [(ngModel)]="searchText" placeholder="Tìm kiếm"> <br>
+      <button type="button" (click)="timkiem()">Tìm kiếm</button>
+    </div>
+    <div class="npm start
+    container-searchDM">
+      <span>THEO DANH MỤC</span> <br>
+      <select class="form-control" [(ngModel)]="category_id" style="margin-top: 20px; margin-bottom: 20px;">
+        <option value="" disabled selected hidden>---Chọn Tour---</option>
+        <option *ngFor="let loai of DsDanhmuc" value="{{loai.category_id}}">{{loai.name}}</option>
+      </select>
+      <button  type="submit" (click)="timkiemIDDM()">Tìm Kiếm</button>
+    </div>
+  </div>
+
+
+<!-- Danh sách Tour -->
+  <div>
+    <div class="container" >
+        <div *ngFor="let tour of tourSearch.length > 0 ? tourSearch : DSTour" class="container-main">
+        <div class="photo">
+           <a [routerLink]="['/home/tour/detail', tour.Id]" [routerLinkActive]="'active-link'">
+            <img [src]="tour.PathAnh">
+          </a>
+        </div>
+        <div class="main">
+          <div class="content1">
+            <div>
+              <h5>{{this.tour.Ten}}</h5>
+            </div>
+            <div class="sale">
+              <h6>Tiết kiệm 5%</h6>
+            </div>
+          </div>
+          <div class="content2">
+            <div class="item1">
+              <span><i class="fa-solid fa-house"></i> Điểm khởi hành: {{tour.NoiXuatPhat}}</span> <br>
+              <span><i class="fa-solid fa-car"></i> Điểm đến: {{tour.NoiDen}}</span> <br>
+              <span><i class="fas fa-clock"></i> Lịch trình: {{tour.ThoiGian}}</span> <br>
+              <span><i class="fa-regular fa-calendar-days"></i> Khởi hành: Theo yêu cầu</span>
+            </div>
+            <div class="item2">
+              <h4><i class="fa-regular fa-heart"></i> {{tour.Gia}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+

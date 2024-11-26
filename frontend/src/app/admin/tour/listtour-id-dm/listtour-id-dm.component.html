@@ -1,0 +1,11 @@
+<div class="tour-oneday">
+  <div *ngFor="let tour of tours" class="tour">
+      <img [src]="tour.PathAnh">
+      <h5>{{this.tour.Ten}}</h5>
+      <span>Nơi xuất phát: {{tour.NoiXuatPhat}}</span>
+      <span>Nơi đến: {{tour.NoiDen}}</span> <br>
+      <span>Lịch trình: {{tour.ThoiGian}}</span>
+      <span>Khởi hành: Hàng ngày</span>
+      <h4><i class="fa-regular fa-heart"></i> {{tour.Gia}}/người</h4>
+  </div>
+</div>

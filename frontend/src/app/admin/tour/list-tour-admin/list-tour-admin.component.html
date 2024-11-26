@@ -1,0 +1,41 @@
+<div class="intro-touroneday">
+    <h4>Danh sách các tour du lịch một ngày và dài ngày tại QuyNhon Tour.</h4>
+    <div class="create-button">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="themTour()">
+        Thêm Tour
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel" style="margin-left: 20px;">{{tieude}}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin-bottom: 20px;" (click)="dong()"></button>
+            </div>
+            <div class="modal-body" >
+              <app-create-update-tour [tour]="tour" *ngIf="dangThemSua"></app-create-update-tour>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    </div>
+  <div class="tour-oneday">
+    <div *ngFor="let tour of tourSearch.length > 0 ? tourSearch : DSTour" class="tour">
+        <img [src]="tour.PathAnh">
+        <h5>{{this.tour.Ten}}</h5>
+        <span>Nơi xuất phát: {{tour.NoiXuatPhat}}</span>
+        <span>Nơi đến: {{tour.NoiDen}}</span> <br>
+        <span>Lịch trình: {{tour.ThoiGian}}</span>
+        <span>Khởi hành: Hàng ngày</span>
+        <h4><i class="fa-regular fa-heart"></i> {{tour.Gia}}/người</h4>
+        <div class="button-sua-xoa">
+          <button type="button" class="btn btn-primary" (click)="chitietTour(tour)" data-bs-toggle="modal" data-bs-target="#exampleModal">Sửa</button>
+          <button type="button" class="btn btn-primary" (click)="xoaTour(tour.Id)" style="margin-left: 30px;">Xóa</button>
+        </div>
+    </div>
+  </div>
+
+

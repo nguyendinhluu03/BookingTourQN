@@ -1,0 +1,53 @@
+<!-- Sidebar -->
+<div class="container-main">
+  <div class="item">
+      <div class="navigation" class="sidebar bg-dark text-white">
+          <div class="text-center" style="margin: 0px 2px;">
+              <img src="../../assets/img/CuLaoXanh.jpg" class="rounded-circle " alt="Avatar">
+              <h5 class="mt-2">QUYNHON TOUR</h5>
+          </div>
+          <div class="menu navigation_list">
+              <a href="#" [routerLink]="['/admin/trangchuad']"> <i class="fas fa-house"></i> Home</a>
+              <!-- <a (click)="navigateToHome()"><i class="fas fa-camera"></i> View</a> -->
+              <a href="#" [routerLink]="['/admin/danhmuc/list']"> <i class="fas fa-thin fa-list"></i> Tour Categorys</a>
+              <a href="#" [routerLink]="['/admin/tour/tourlist']" [routerLinkActive]="'active-link'"> <i class="fas fa-image"></i> Tours</a>
+              <a href="#" [routerLink]="['/admin/vehicles/list']" [routerLinkActive]="'active-link'"><i class="fas fa-bus"></i> Vehicles</a>
+              <a href="#" [routerLink]="['/admin/donhang/list']" [routerLinkActive]="'active-link'"><i class="fas fa-cart-shopping"></i>  Bills </a>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="item">
+      <div>
+          <div class="main" >
+              <!-- Navbar -->
+              <nav class="container-fluid navbar navbar-expand-lg navbar-light bg-light"
+                  style="background-color: #343a40; width: 100%; padding: 15px;">
+                  <div class="container-fluid">
+                      <div class="search">
+                          <label>
+                              <!-- <input type="text" placeholder="Search here">
+                              <i class="fas fa-search"></i> -->
+                              <input type="text" name="searchText" [(ngModel)]="searchText" placeholder="Tìm kiếm" (keyup.enter)="timkiem()">
+                              <i (click)="timkiem()" class="fas fa-search"></i>
+                              <!-- <button type="button" (click)="timkiem()">Tìm kiếm</button> -->
+                          </label>
+                      </div>
+
+                      <div class="collapse navbar-collapse" id="navbarNav">
+                          <ul class="navbar-nav ms-auto">
+                              <li class="nav-item " style="margin-top: -30px;">
+                                <i class="dangxuat fa-solid fa-arrow-right-from-bracket" (click)="dangXuat()"></i>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </nav>
+          </div>
+      </div>
+
+
+      <router-outlet></router-outlet>
+  </div>
+</div>

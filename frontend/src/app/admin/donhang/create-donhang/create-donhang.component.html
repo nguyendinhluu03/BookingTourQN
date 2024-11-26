@@ -1,0 +1,38 @@
+<h2>TẠO HÓA ĐƠN</h2>
+
+     <div class="container" >
+      <form #themDonHang="ngForm" class="form-create create-form" (ngSubmit)="themDonhang()">
+          <div class="mb-3">
+              <label  class="form-label">Tên khách hàng</label>
+              <input type="text" class="form-control" [(ngModel)]="Name" name="Name" required>
+          </div>
+          <div class="mb-3">
+              <label for="Sdt" class="form-label">Số điện thoại</label>
+              <input type="text" class="form-control" id="Sdt" [(ngModel)]="sdt" name="Sdt" required>
+          </div>
+          <div class="mb-3">
+              <label for="SoLuong" class="form-label">Số lượng</label>
+              <input type="number" class="form-control" id="SoLuong" [(ngModel)]="soLuong" name="soLuong" required>
+          </div>
+          <div class="mb-3">
+              <label for="ngayKhoiHanh">Ngày Khởi Hành:</label>
+              <input style="margin-left: 30px;" type="date" lass="form-control" id="ngayKhoiHanh" [(ngModel)]="ngayKhoiHanh" name="ngayKhoiHanh" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Tour du lịch: </label>
+            <select class="form-control" [(ngModel)]="idTour" name="IDTour">
+              <option disabled selected value="">--- Chọn tour ---</option>
+              <option *ngFor="let t of DsTour" [value]="t.Id">{{t.Ten}}</option>
+            </select>
+        </div>
+        <div class="mb-3">
+          <label for="IDXe" class="form-label">Phương tiện:</label>
+          <select class="form-control" [(ngModel)]="idXe" name="IDXe" >
+            <option disabled selected value="">--- Chọn loại xe ---</option>
+            <option *ngFor="let v of DSVehicle" value="{{v.Id}}">{{v.Name}} </option>
+          </select>
+        </div>
+          <button type="submit" class="btn btn-primary">TẠO HÓA ĐƠN</button>
+      </form>
+    </div>
+

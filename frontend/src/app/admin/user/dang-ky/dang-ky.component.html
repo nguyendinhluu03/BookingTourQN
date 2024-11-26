@@ -1,0 +1,15 @@
+<div class="login-container">
+  <form (ngSubmit)="dangKy()" #registrationForm="ngForm">
+      <label for="username">Tên đăng nhập:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username" required>
+
+      <label for="password">Mật khẩu:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+
+      <label for="rePassword">Nhập lại Mật khẩu:</label>
+      <input type="password" id="rePassword" name="rePassword" [(ngModel)]="rePassword" required>
+
+      <button type="submit">Đăng ký</button>
+  </form>
+</div>
+

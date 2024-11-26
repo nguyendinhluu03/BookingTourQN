@@ -1,0 +1,16 @@
+.container {
+  max-width: 800px;
+}
+
+.form-control-file {
+  display: block;
+  margin-top: 10px;
+}
+
+.row.form-group {
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  width: 150px;
+}

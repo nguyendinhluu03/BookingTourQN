@@ -1,0 +1,104 @@
+
+
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Cập nhật Hóa đơn</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body" >
+        <form *ngIf="selected"  (ngSubmit)="suaDonHang()">
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Tên khách hàng</label>
+                    <input type="text" class="form-control" id="Name" [(ngModel)]="Name" name="Name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="Sdt" class="form-label">Số ĐT</label>
+                    <input type="text" class="form-control" id="Sdt" [(ngModel)]="Sdt" name="Sdt" required>
+                </div>
+                <div class="mb-3">
+                    <label for="SoLuong" class="form-label">Số lượng</label>
+                    <input type="number" class="form-control" id="SoLuong" [(ngModel)]="SoLuong" name="soLuong" required>
+                </div>
+                <div class="mb-3">
+                    <label for="ngayKhoiHanh">Ngày Khởi Hành:</label>
+                    <input style="margin-left: 30px;"  type="date" lass="form-control" id="ngayKhoiHanh" [(ngModel)]="NgayKhoiHanh" name="ngayKhoiHanh" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Tour du lịch: </label>
+                  <select class="form-control" [(ngModel)]="IDTour" name="IDTour">
+                    <option disabled selected value="">--- Chọn tour ---</option>
+                    <option *ngFor="let t of DsTour" [value]="t.Id">{{t.Ten}}</option>
+                  </select>
+              </div>
+              <div class="mb-3">
+                <label for="IDXe" class="form-label">Phương tiện:</label>
+                <select class="form-control" [(ngModel)]="IDXe" name="IDXe" >
+                  <option disabled selected value="">--- Chọn loại xe ---</option>
+                  <option *ngFor="let v of DSVehicle" value="{{v.Id}}">{{v.Name}} </option>
+                </select>
+              </div>
+            <div class="mb-3">
+              <label for="Gia" class="form-label">Giá</label>
+              <input type="text" class="form-control" id="Gia" [(ngModel)]="Gia" name="Gia" required>
+          </div>
+          <button style="margin-left: 180px;" type="submit" class="btn btn-danger" data-bs-dismiss="modal" >Cập nhật</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="them btn btn-danger"  [routerLink]="['/admin/donhang/create']">Thêm đơn hàng</button>
+
+  <button type="button" class="btn btn-warning" [routerLink]="['/admin/booking']" style="margin-left: 30px; margin-top: 30px;">
+    Xem 5 tour được đặt nhiều nhất
+  </button>
+
+<div class="container mt-3">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Tên </th>
+        <th>Số ĐT</th>
+        <th>Số Lượng</th>
+        <th>Ngày Khởi Hành</th>
+        <th>Tour</th>
+        <th>Phương tiện</th>
+        <th>Giá</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let donhang of DSDonHang">
+        <td>{{ donhang.Name }}</td>
+        <td>{{ donhang.Sdt }}</td>
+        <td>{{ donhang.SoLuong }}</td>
+        <td>{{ donhang.NgayKhoiHanh | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ donhang.TourTen }}</td>
+        <td>{{ donhang.VehiclesTen }}</td>
+        <td>{{ donhang.Gia }}</td>
+        <td style="width: 200px;" class="sua-xoa">
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addModal" (click)="editDonHang(donhang)">
+            <i class="fas fa-pen"></i>
+          </button>
+          <button type="button" class="btn btn-warning" (click)="xoaDsDonhang(donhang)" style="margin-left: 10px;">
+            <i class="fas fa-trash"></i>
+          </button>
+          <button type="button" class="btn btn-warning" [routerLink]="['/admin/donhang/detail', donhang.ID]" style="margin-left: 10px;">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

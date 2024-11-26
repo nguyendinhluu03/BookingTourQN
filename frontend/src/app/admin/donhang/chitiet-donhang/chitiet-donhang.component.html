@@ -1,0 +1,38 @@
+<div class="container" *ngIf="donhang" style="margin-top: 50px;">
+  <div class="title">
+    <h2>Hóa đơn Tour du lịch</h2>
+  </div>
+  <div class="container-main">
+    <div class="content">
+      <table>
+        <tbody>
+          <tr>
+            <th>Tên khách hàng (Anh/Chị):</th>
+            <td>{{donhang.Name}}</td>
+          </tr>
+          <tr>
+            <th>Số điện thoại:</th>
+            <td>{{donhang.Sdt}}</td>
+          </tr>
+          <tr>
+            <th>Số lượng khách:</th>
+            <td>{{donhang.SoLuong}}</td>
+          </tr>
+          <tr>
+            <th>Ngày khởi hành:</th>
+            <td>{{donhang.NgayKhoiHanh}}</td>
+          </tr>
+          <tr>
+            <th>Tour:</th>
+            <td>{{donhang.IDTour}}</td>
+          </tr>
+          <tr>
+            <th>Phương tiện:</th>
+            <td>{{donhang.IDXe}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h4 style="color: brown;">Thanh toán: {{donhang.Gia}}</h4>
+    </div>
+  </div>
+</div>

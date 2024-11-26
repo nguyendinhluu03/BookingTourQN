@@ -1,0 +1,114 @@
+<div class="container-detail" *ngIf="tour">
+  <div class="title">
+    <h3>{{tour.Ten}}  <i class="fa-solid fa-star"></i>  <i class="fa-solid fa-star"></i>  <i class="fa-solid fa-star"></i>  <i class="fa-solid fa-star"></i>  <i class="fa-solid fa-star"></i></h3>
+  </div>
+  <div class="container-main">
+    <div class="photo">
+      <img style="height: 380px; width: 700px;" [src]="tour.PathAnh">
+    </div>
+    <div class="content">
+      <div class="sale">
+        <span>Tiết kiệm</span>
+        <h5>6%</h5>
+      </div>
+      <div class="main">
+        <h4>Giá từ: {{tour.Gia}}/người</h4>
+      <span><i class="fas fa-location-dot"></i> Từ: {{tour.NoiXuatPhat}}</span>
+      <span><i class="fas fa-car"></i> Đi: {{tour.NoiDen}}</span> <br>
+      <span><i class="fas fa-clock"></i> {{tour.ThoiGian}}</span>
+      </div>
+      <div class="diemnoibat">
+        <h5>Điểm nổi bật:</h5>
+        <div>
+          <i class="fa-solid fa-check"></i>
+          <span> Quà tặng phao thiên nga khổng lồ, phao nhúng khi lặn san hô</span>
+        </div>
+        <div>
+          <i class="fa-solid fa-check"></i>
+          <span> Trượt cát cho nhóm tổ chức riêng</span>
+        </div>
+        <div>
+          <i class="fa-solid fa-phone"></i>
+          <span> Liên hệ: 0339716273</span>
+        </div>
+      </div>
+      <div class="button">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">GỬI YÊU CẦU</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="descript">
+  <div class="item1">
+    <h4>GIÁ TOUR BAO GỒM:</h4>
+    <div>
+      <li>Xe ô tô đời mới theo lịch trình</li>
+      <li>Cano siêu tốc khứ hồi phục vụ theo chương trình</li>
+      <li>Bữa trưa hải sản theo chương trình</li>
+      <li>Dụng cụ lặn ngắm san hô: Áo phao, Kính lặn</li>
+      <li>Vé Cầu tình yêu (Cầu Hang Yến)</li>
+      <li>Vé vào bãi tắm Kỳ Co</li>
+      <li>Show biểu diễn xiếc Hải Cẩu</li>
+      <li>Dịch vụ tắm tráng nước ngọt</li>
+    </div>
+  </div>
+  <div class="item2">
+    <h4>ĐIỀU KHOẢN VÀ QUY ĐỊNH:</h4>
+    <div>
+      <span>CHÍNH SÁCH ƯU ĐÃI DÀNH CHO TRẺ EM:</span>
+      <li>2 người lớn miễn phí 1 trẻ em dưới 5 tuổi, trẻ thứ 2 tính 50%.</li>
+      <li>Trẻ em từ 5 – 10 tuổi, tính 50% chi phí người lớn</li>
+      <li>Trẻ từ 10 tuổi trở lên, tính bằng chi phí người lớn.</li>
+    </div>
+    <span>LƯU Ý:</span>
+    <li>Quý khách chuẩn bị thêm quần áo gọn nhẹ, dép lào hoặc dép để đi biển</li>
+    <li>Cung cấp đầy đủ thông tin theo yêu cầu đề công ty đăng ký bảo hiểm</li>
+    <li>Bắt buộc phải mặc áo phao</li>
+  </div>
+</div>
+
+<!-- Đặt tour -->
+<div class="create-button" >
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">ĐẶT TOUR</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="dong()"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Tên khách hàng:</label>
+              <input type="text" class="form-control" id="name" [(ngModel)]="Name" name="Name">
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Số điện thoại:</label>
+              <input type="text" class="form-control" id="phone" [(ngModel)]="sdt" name="Sdt">
+            </div>
+            <div class="mb-3">
+              <label for="quantity" class="form-label">Số lượng khách:</label>
+              <input type="number" class="form-control" id="quantity" [(ngModel)]="soLuong" name="soLuong">
+            </div>
+            <div class="mb-3">
+              <label for="departureDate" class="form-label">Ngày khởi hành:</label>
+              <input type="date" class="form-control" id="departureDate" [(ngModel)]="ngayKhoiHanh" name="ngayKhoiHanh">
+            </div>
+            <div class="mb-3">
+              <label for="vehicle" class="form-label">Chọn phương tiện:</label>
+              <select class="form-control" [(ngModel)]="idXe" name="IDXe" >
+                <option *ngFor="let v of DSVehicle" value="{{v.Id}}">{{v.Name}} </option>
+              </select>
+            </div>
+          </form>
+          <br>
+          <div class="">
+            <button style="margin-left: 170px;" class="btn btn-primary" (click)="themDonhang()" >GỬI YÊU CẦU</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

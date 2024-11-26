@@ -1,0 +1,6 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/Nguyett11/Frontend_BookingTourQuyNhon.git
+[submodule "backend"]
+	path = backend
+	url = https://github.com/Nguyett11/Backend_BookingTourQuyNhon.git

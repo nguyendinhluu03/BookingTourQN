@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-sm-5">
+    <img [src]="tour.PathAnh" class="img-thumbnail larger-image">
+    <input class="form-control" (change)="uploadPhoto($event)" type="file">
+  </div>
+  <div class="col-md-7">
+    <div class="mb-3 row">
+      <label for="ten" class="col-sm-3 col-form-label">Tên:</label>
+      <div class="col-sm-9">
+        <input id="ten" class="form-control" [(ngModel)]="ten">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="category_id" class="col-sm-3 col-form-label">Tour:</label>
+      <div class="col-sm-9">
+        <select id="category_id" class="form-control" [(ngModel)]="category_id">
+          <option value="" disabled selected hidden>--- Chọn Tour ---</option>
+          <option *ngFor="let loai of DsDanhmuc" [value]="loai.category_id">{{loai.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="noixuatphat" class="col-sm-3 col-form-label">Điểm xuất phát:</label>
+      <div class="col-sm-9">
+        <input id="noixuatphat" class="form-control" [(ngModel)]="noixuatphat">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="noiden" class="col-sm-3 col-form-label">Điểm đến:</label>
+      <div class="col-sm-9">
+        <input id="noiden" class="form-control" [(ngModel)]="noiden">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="thoigian" class="col-sm-3 col-form-label">Thời gian:</label>
+      <div class="col-sm-9">
+        <input id="thoigian" class="form-control" [(ngModel)]="thoigian">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="gia" class="col-sm-3 col-form-label">Giá:</label>
+      <div class="col-sm-9">
+        <input id="gia" class="form-control" [(ngModel)]="gia">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-center mt-3">
+  <button class="btn btn-primary me-2" (click)="createTour()" *ngIf="tour.Id === 0">Thêm tour</button>
+  <button class="btn btn-primary" (click)="suaTour(tour.Id)" *ngIf="tour.Id !== 0">Cập nhật</button>
+</div>
